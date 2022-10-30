@@ -1,0 +1,16 @@
+services:
+  cloudflare-ddns:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=U-jJT62aU1khKdRPNdQsioU40-qIOU61rO6cA66I
+      - ZONE=alexandergoya.xyz
+      - SUBDOMAIN=tools
+      - PROXIED=false
+    networks:
+      - nginx_backend
+networks:
+  default:
+  nginx_backend:
+    external:
+      name: nginx_backend
